@@ -10,16 +10,28 @@
   },
   "homepage": "https://github.com/Amxx/EIP-5806#readme",
   "scripts": {
-		"build": "hardhat compile",
-    "test": "hardhat test --network localhost"
+    "build": "hardhat compile",
+    "test": "hardhat test"
   },
   "devDependencies": {
+    "@nomicfoundation/ethereumjs-block": "file:../../../ethereumjs-monorepo/packages/block",
+    "@nomicfoundation/ethereumjs-blockchain": "file:../../../ethereumjs-monorepo/packages/blockchain",
+    "@nomicfoundation/ethereumjs-common": "file:../../../ethereumjs-monorepo/packages/common",
+    "@nomicfoundation/ethereumjs-ethash": "file:../../../ethereumjs-monorepo/packages/ethash",
+    "@nomicfoundation/ethereumjs-evm": "file:../../../ethereumjs-monorepo/packages/evm",
+    "@nomicfoundation/ethereumjs-rlp": "file:../../../ethereumjs-monorepo/packages/rlp",
+    "@nomicfoundation/ethereumjs-statemanager": "file:../../../ethereumjs-monorepo/packages/statemanager",
+    "@nomicfoundation/ethereumjs-trie": "file:../../../ethereumjs-monorepo/packages/trie",
+    "@nomicfoundation/ethereumjs-tx": "file:../../../ethereumjs-monorepo/packages/tx",
+    "@nomicfoundation/ethereumjs-util": "file:../../../ethereumjs-monorepo/packages/util",
+    "@nomicfoundation/ethereumjs-verkle": "file:../../../ethereumjs-monorepo/packages/verkle",
+    "@nomicfoundation/ethereumjs-vm": "file:../../../ethereumjs-monorepo/packages/vm",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
     "@nomicfoundation/hardhat-ethers": "^3.0.5",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
     "chai": "^4.4.1",
     "ethers": "github:amxx/ethers.js#features/eip-5806-transactions",
-    "hardhat": "^2.20.1",
+    "hardhat": "2.20.1",
     "yargs": "^17.7.2"
   },
   "dependencies": {
