@@ -1,0 +1,12 @@
+[submodule "lib/ethers"]
+	path = lib/ethers
+	url = https://github.com/Amxx/ethers.js.git
+	branch = features/eip-5806-transactions
+[submodule "lib/ethereumjs-monorepo"]
+	path = lib/ethereumjs-monorepo
+	url = https://github.com/Amxx/ethereumjs-monorepo.git
+	branch = features/eip-5806
+[submodule "lib/go-ethereum"]
+	path = lib/go-ethereum
+	url = https://github.com/Amxx/go-ethereum.git
+	branch = 5806_delegate_tx
