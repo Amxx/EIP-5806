@@ -1,0 +1,28 @@
+{
+  "name": "eip5806",
+  "description": "",
+  "author": "Hadrien Croubois (@Amxx)",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amxx/EIP-5806.git"
+  },
+  "homepage": "https://github.com/Amxx/EIP-5806#readme",
+  "scripts": {
+		"build": "hardhat compile",
+    "test": "hardhat test --network localhost"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "chai": "^4.4.1",
+    "ethers": "github:amxx/ethers.js#features/eip-5806-transactions",
+    "hardhat": "^2.20.1",
+    "yargs": "^17.7.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2"
+  }
+}
