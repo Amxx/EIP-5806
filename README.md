@@ -22,6 +22,7 @@
 
 - [ethers.js](https://github.com/ethers-io/ethers.js/pull/4638): Prototype working + initially tested. Missing formal tests and review. Used for testing clients.
 - [hardhat (edr)](https://github.com/Amxx/hardhat/tree/features/eip-5806): Work in progress. Not tested. Blocked by revm.
+- [revm](https://github.com/bluealloy/revm/pull/1184): Work in progress. Not tested.
 
 ### Wallets
 
