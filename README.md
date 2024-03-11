@@ -15,12 +15,13 @@
 
 ### Clients
 
-- [go-ethereum](https://github.com/ethereum/go-ethereum/pull/28997)
-- [ethereumjs](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3312)
+- [go-ethereum](https://github.com/ethereum/go-ethereum/pull/28997): Prototype working + initially tested. Missing formal tests and review.
+- [ethereumjs](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3312): Prototype working + initially tested. Missing formal tests and review.
 
 ### Tooling
 
-- [ethers.js](https://github.com/ethers-io/ethers.js/pull/4638)
+- [ethers.js](https://github.com/ethers-io/ethers.js/pull/4638): Prototype working + initially tested. Missing formal tests and review. Used for testing clients.
+- [hardhat (edr)](https://github.com/Amxx/hardhat/tree/features/eip-5806): Work in progress. Not tested. Blocked by revm.
 
 ### Wallets
 
