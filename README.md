@@ -31,9 +31,9 @@
 
 ### How to make EIP-5806 available in hardhat
 
-This changes are not "clean" but they provide some guidance to get a minimal example (that is enough to pass the tests in `packages/test`).
+These changes are not "clean" but they provide some guidance to get a minimal example (that is enough to pass the tests in `packages/test`).
 
-- Use `hardhat:2.20.1`. Later version use EDF, which is not solved
+- Use `hardhat:2.20.1` (Later version use EDR)
 - Use `@nomicfoundation/ethereumjs-xxx` from [this branch](https://github.com/Amxx/ethereumjs-monorepo/tree/features/eip-5806-nomiclabs)
 - Configure `networks.hardhat.hardfork = 'cancun'` in your `hardhat.config.json`
 - Modify `node_modules/hardhat/internal/hardhat-network/provider/modules/eth.js`
