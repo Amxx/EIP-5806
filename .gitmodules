@@ -10,3 +10,7 @@
 	path = lib/go-ethereum
 	url = https://github.com/Amxx/go-ethereum.git
 	branch = 5806_delegate_tx
+[submodule "lib/revm"]
+	path = lib/revm
+	url = https://github.com/Amxx/revm.git
+	branch = features/eip-5806
