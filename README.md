@@ -40,4 +40,18 @@ or
 ```bash
 yarn add 'https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2'
 ```
-- Configure `networks.hardhat.hardfork = 'cancun'` and `networks.hardhat.eips = [5806]` in your `hardhat.config.json`
+- Configure your `hardhat.config.json`
+
+```javascript
+// ...
+module.exports = {
+  // ...
+  networks: {
+    hardhat: {
+      hardfork: 'cancun',
+      eips: [5806],
+    },
+  },
+  // ...
+};
+```
