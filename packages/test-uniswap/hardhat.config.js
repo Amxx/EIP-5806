@@ -4,6 +4,7 @@ const { argv } = require('yargs/yargs')()
 
 require('@nomicfoundation/hardhat-chai-matchers');
 require('@nomicfoundation/hardhat-ethers');
+require('./hardhat/remappings');
 
 module.exports = {
   solidity: {
@@ -19,7 +20,7 @@ module.exports = {
   networks: {
     hardhat: {
       hardfork: 'cancun',
-			eips: [5806],
+      eips: [5806],
     },
   },
 };

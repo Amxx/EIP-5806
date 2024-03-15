@@ -14,6 +14,6 @@
 	path = lib/revm
 	url = https://github.com/Amxx/revm.git
 	branch = features/eip-5806
-[submodule "packages/test/lib/uniswap-v4-periphery"]
-	path = packages/test/lib/uniswap-v4-periphery
+[submodule "packages/test-uniswap/lib/uniswap-v4-periphery"]
+	path = packages/test-uniswap/lib/uniswap-v4-periphery
 	url = https://github.com/Uniswap/v4-periphery.git
