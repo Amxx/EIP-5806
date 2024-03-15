@@ -18,8 +18,8 @@ module.exports = {
   },
   networks: {
     hardhat: {
-      hardfork: 'cancun',
-			eips: [5806],
+      hardfork: 'prague',
+      eips: [5806],
     },
   },
 };

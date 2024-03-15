@@ -19,7 +19,7 @@ module.exports = {
   },
   networks: {
     hardhat: {
-      hardfork: 'cancun',
+      hardfork: 'prague',
       eips: [5806],
     },
   },

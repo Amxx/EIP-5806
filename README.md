@@ -33,6 +33,7 @@
 
 ### How to make EIP-5806 available in hardhat
 
+Install this specific version of hardahat:
 ```bash
 npm install 'https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2'
 ```
@@ -40,15 +41,15 @@ or
 ```bash
 yarn add 'https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2'
 ```
-- Configure your `hardhat.config.json`
 
+Enable Prague and 5806 in your `hardhat.config.json`
 ```javascript
 // ...
 module.exports = {
   // ...
   networks: {
     hardhat: {
-      hardfork: 'cancun',
+      hardfork: 'prague',
       eips: [5806],
     },
   },
