@@ -10,7 +10,7 @@
   },
   "homepage": "https://github.com/Amxx/EIP-5806#readme",
   "scripts": {
-    "build": "hardhat compile",
+    "compile": "hardhat compile",
     "test": "hardhat test"
   },
   "devDependencies": {

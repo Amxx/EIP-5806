@@ -1,0 +1,5 @@
+@uniswap/v4-core/=lib/uniswap-v4-periphery/lib/v4-core/
+@uniswap/v4-periphery/=lib/uniswap-v4-periphery/
+ds-test/=lib/uniswap-v4-periphery/lib/v4-core/lib/forge-std/lib/ds-test/src/
+forge-std/=lib/uniswap-v4-periphery/lib/forge-std/src/
+solmate/=lib/uniswap-v4-periphery/lib/solmate/src/
