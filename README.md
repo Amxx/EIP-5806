@@ -37,10 +37,13 @@ Install this specific version of hardahat:
 ```bash
 npm install 'https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2'
 ```
-or
+
+and this specific version of ethers:
 ```bash
-yarn add 'https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2'
+npm install 'github:amxx/ethers.js#features/eip-5806-transactions'
 ```
+
+(with the normal `@nomicfoundation/hardhat-ethers`)
 
 Enable Prague and 5806 in your `hardhat.config.json`
 ```javascript
@@ -56,3 +59,5 @@ module.exports = {
   // ...
 };
 ```
+
+NOTE: EIP-5806 is supported by the ethers wallet, but not yet by the JSON-RPC Signers. See `packages/test` and `packages/test-uniswap`.

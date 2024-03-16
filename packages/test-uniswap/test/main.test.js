@@ -69,9 +69,9 @@ async function fixture() {
     return { currency0, currency1, fee: 3000n, tickSpacing: Constants.TICK_SPACING, hooks: fullRange };
   }
 
-  const token0 = await ethers.deployContract('MockERC20', ["Token #0", "T0", 18]);
-  const token1 = await ethers.deployContract('MockERC20', ["Token #1", "T1", 18]);
-  const token2 = await ethers.deployContract('MockERC20', ["Token #2", "T2", 18]);
+  const token0 = await ethers.deployContract('ERC20Mock', ["Token #0", "T0"]);
+  const token1 = await ethers.deployContract('ERC20Mock', ["Token #1", "T1"]);
+  const token2 = await ethers.deployContract('ERC20Mock', ["Token #2", "T2"]);
   const key1 = createPoolKey(token0, token1);
   const key2 = createPoolKey(token1, token2);
 
@@ -151,11 +151,44 @@ describe('Uniswap V4', function () {
         .then(this.receipts.push.bind(this.receipts));
     });
 
-    it('multicall', async function () {
+    it('multicall - storage allowance', async function () {
       const calls = [{
         target: this.key1.currency0.target,
         value: 0n,
         data: this.key1.currency0.interface.encodeFunctionData('approve', [this.router.target, 10000000]),
+      },{
+        target: this.router.target,
+        value: 0n,
+        data: this.router.interface.encodeFunctionData('swap', [
+          {
+            currency0: this.key1.currency0.target,
+            currency1: this.key1.currency1.target,
+            fee: this.key1.fee,
+            tickSpacing: this.key1.tickSpacing,
+            hooks: this.key1.hooks.target,
+          },
+          {
+            zeroForOne: true,
+            amountSpecified: 10000000,
+            sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2
+          },
+          {
+            withdrawTokens: true,
+            settleUsingTransfer: true
+          },
+          Constants.ZERO_BYTES
+        ]),
+      }];
+      await this.batchcall.connect(this.user).exec.delegateCall(calls, { gasLimit: 1000000 })
+        .then(tx => tx.wait())
+        .then(this.receipts.push.bind(this.receipts));
+    });
+
+    it('multicall - transient allowance', async function () {
+      const calls = [{
+        target: this.key1.currency0.target,
+        value: 0n,
+        data: this.key1.currency0.interface.encodeFunctionData('approveTransient', [this.router.target, 10000000]),
       },{
         target: this.router.target,
         value: 0n,
