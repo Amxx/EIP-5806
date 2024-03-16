@@ -130,9 +130,14 @@ describe('Uniswap V4', function () {
       await this.admin.sendTransaction({ to: this.user.address, value: ethers.WeiPerEther });
       await this.key1.currency0.mint(this.user, 10000000);
       this.receipts = [];
+      // not allowance before
+      expect(await this.key1.currency0.allowance(this.user, this.router)).to.equal(0n);
     });
 
     afterEach(async function () {
+      // no allowance after
+      expect(await this.key1.currency0.allowance(this.user, this.router)).to.equal(0n);
+      // measure used gas
       console.log(`total: ${this.receipts.reduce((acc, { gasUsed }) => acc + gasUsed, 0n)}`);
     });
 
@@ -188,7 +193,7 @@ describe('Uniswap V4', function () {
       const calls = [{
         target: this.key1.currency0.target,
         value: 0n,
-        data: this.key1.currency0.interface.encodeFunctionData('approveTransient', [this.router.target, 10000000]),
+        data: this.key1.currency0.interface.encodeFunctionData('approveTransient', [this.router.target, ethers.MaxUint256]), // allowance is revoked anyway
       },{
         target: this.router.target,
         value: 0n,

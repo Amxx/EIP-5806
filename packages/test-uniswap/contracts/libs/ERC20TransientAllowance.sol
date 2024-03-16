@@ -22,14 +22,18 @@ abstract contract ERC20TransientAllowance is ERC20 {
 
     function _spendAllowance(address owner, address spender, uint256 value) internal virtual override {
         unchecked {
+            // load transient allowance
             uint256 currentTransientAllowance = _loadTranscientAllowance(owner, spender);
-            if (currentTransientAllowance != type(uint256).max) {
-                uint256 spend = Math.min(currentTransientAllowance, value);
-                _storeTranscientAllowance(owner, spender, currentTransientAllowance - spend);
-                if (spend < value) {
-                    super._spendAllowance(owner, spender, value);
-                }
-            }
+            // if infinite, do nothing
+            if (currentTransientAllowance == type(uint256).max) return;
+            // check how much of the value is covered by the transient allowance
+            uint256 spendTransientAllowance = Math.min(currentTransientAllowance, value);
+            // decrease transient allowance accordingly
+            _storeTranscientAllowance(owner, spender, currentTransientAllowance - spendTransientAllowance);
+            // if everything is covered, stop
+            if (value == spendTransientAllowance) return;
+            // otherwize, spend the rest from "normal" allowance
+            super._spendAllowance(owner, spender, value - spendTransientAllowance);
         }
     }
 
