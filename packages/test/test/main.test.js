@@ -4,29 +4,37 @@ const { anyValue } = require('@nomicfoundation/hardhat-chai-matchers/withArgs');
 
 describe('Mock', function () {
   before(async function () {
-    const wallet          = ethers.Wallet.createRandom(ethers.provider);
     this.mock             = await ethers.deployContract('Mock');
     this.batch            = await ethers.deployContract('BatchCall');
-    this.signer           = new ethers.NonceManager(wallet);
-    this.signerAsInstance = this.mock.attach(wallet.address);
-    await ethers.getSigners().then(([ account ]) => account.sendTransaction({ to: wallet.address, value: ethers.WeiPerEther }));
+    [this.signer]         = await ethers.getSigners();
+    this.signerAsInstance = this.mock.attach(this.signer.address);
   });
 
   beforeEach(async function () {
     this.instance = await this.mock.create()
       .then(tx => tx.wait())
       .then(receipt => receipt.logs.find(ev => ev.fragment.name === 'NewClone').args.instance)
-      .then(address => this.mock.attach(address).connect(this.signer));
+      .then(address => this.mock.attach(address));
+  });
+
+  it('using ethers signer', async function () {
+    const wallet = ethers.Wallet.createRandom(ethers.provider);
+    const walletAsInstance = this.mock.attach(wallet.address);
+    await this.signer.sendTransaction({ to: wallet.address, value: ethers.WeiPerEther });
+
+    const tx = this.instance.connect(wallet).log.delegateCall();
+    await expect(tx).to.not.emit(this.instance, 'Context')
+    await expect(tx).to.emit(walletAsInstance, 'Context').withArgs(wallet, wallet, 0n, anyValue);
   });
 
   it('events', async function () {
-    await expect(this.instance.log.send({ value: 1n }))
-      .to.emit(this.instance, 'Context')
-      .withArgs(this.instance, this.signer, 1n, 1n);
+    const tx1 = this.instance.log.send({ value: 1n });
+    await expect(tx1).to.emit(this.instance, 'Context').withArgs(this.instance, this.signer, 1n, 1n);
+    await expect(tx1).to.not.emit(this.signerAsInstance, 'Context');
 
-    await expect(this.instance.log.delegateCall())
-      .to.emit(this.signerAsInstance, 'Context')
-      .withArgs(this.signer, this.signer, 0n, anyValue);
+    const tx2 = this.instance.log.delegateCall();
+    await expect(tx2).to.not.emit(this.instance, 'Context')
+    await expect(tx2).to.emit(this.signerAsInstance, 'Context').withArgs(this.signer, this.signer, 0n, anyValue);
   });
 
   it('call #1', async function () {
@@ -36,7 +44,7 @@ describe('Mock', function () {
   });
 
   it('call #2', async function () {
-    await expect(this.batch.connect(this.signer).exec.delegateCall([{
+    await expect(this.batch.exec.delegateCall([{
       target: this.instance,
       value: 1n,
       data: this.instance.interface.encodeFunctionData('log')

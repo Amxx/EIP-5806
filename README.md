@@ -60,4 +60,4 @@ module.exports = {
 };
 ```
 
-NOTE: EIP-5806 is supported by the ethers wallet, but not yet by the JSON-RPC Signers. See `packages/test` and `packages/test-uniswap`.
+See `packages/test` and `packages/test-uniswap` for examples.
