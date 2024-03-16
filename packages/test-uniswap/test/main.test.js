@@ -154,14 +154,14 @@ describe('Uniswap V4', function () {
         .then(gasUsed => console.log(`total: ${gasUsed}`));
     });
 
-    it('testFullRange_swap_TwoPools', async function () {
-      await this.key1.currency0.connect(this.user).approve(this.router, amountSpecified).then(this.txs.push.bind(this.txs));
+    it('approve and swap', async function () {
+      await this.key1.currency0.connect(this.user).approve(this.router, amountSpecified).then(tx => this.txs.push(tx));
       await this.router.connect(this.user).swap(
         this.key1,
         { zeroForOne: true, amountSpecified, sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2 },
         { withdrawTokens: true, settleUsingTransfer: true },
         Constants.ZERO_BYTES
-      ).then(this.txs.push.bind(this.txs));
+      ).then(tx => this.txs.push(tx));
     });
 
     it('multicall - storage allowance', async function () {
@@ -192,7 +192,7 @@ describe('Uniswap V4', function () {
           Constants.ZERO_BYTES
         ]),
       }];
-      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(this.txs.push.bind(this.txs));
+      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(tx => this.txs.push(tx));
     });
 
     it('multicall - transient allowance', async function () {
@@ -223,7 +223,7 @@ describe('Uniswap V4', function () {
           Constants.ZERO_BYTES
         ]),
       }];
-      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(this.txs.push.bind(this.txs));
+      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(tx => this.txs.push(tx));
     });
   });
 });
