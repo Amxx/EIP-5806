@@ -27,7 +27,7 @@ const Constants = {
 
 // fixture
 async function fixture() {
-  const [ admin ] = await ethers.getSigners();
+  const [ admin, user ] = await ethers.getSigners();
 
   // deployFreshManagerAndRouters
   const manager = await ethers.deployContract('PoolManager', [ 500000 ])
@@ -104,6 +104,7 @@ async function fixture() {
 
   return {
     admin,
+    user,
     batchcall,
     manager,
     feeController,
@@ -125,42 +126,49 @@ describe('Uniswap V4', function () {
   });
 
   describe('swap', function () {
+    const amountSpecified = 10000000n;
+    const amountReceived = 9969999n;
+
     beforeEach(async function () {
-      this.user = ethers.Wallet.createRandom(ethers.provider);
-      await this.admin.sendTransaction({ to: this.user.address, value: ethers.WeiPerEther });
-      await this.key1.currency0.mint(this.user, 10000000);
-      this.receipts = [];
-      // not allowance before
+      // mint tokens
+      await this.key1.currency0.mint(this.user, amountSpecified);
+      // check values before
+      expect(await this.key1.currency0.balanceOf(this.user)).to.equal(amountSpecified);
+      expect(await this.key1.currency1.balanceOf(this.user)).to.equal(0n);
       expect(await this.key1.currency0.allowance(this.user, this.router)).to.equal(0n);
+      // prepare struct for measuring gas
+      this.txs = [];
     });
 
     afterEach(async function () {
-      // no allowance after
+      // check events
+      await expect(this.txs.at(-1)).to.changeTokenBalances(this.key1.currency0, [this.manager, this.user], [amountSpecified, -amountSpecified]);
+      await expect(this.txs.at(-1)).to.changeTokenBalances(this.key1.currency1, [this.manager, this.user], [-amountReceived, amountReceived]);
+      // check values after
+      expect(await this.key1.currency0.balanceOf(this.user)).to.equal(0n);
+      expect(await this.key1.currency1.balanceOf(this.user)).to.equal(amountReceived);
       expect(await this.key1.currency0.allowance(this.user, this.router)).to.equal(0n);
       // measure used gas
-      console.log(`total: ${this.receipts.reduce((acc, { gasUsed }) => acc + gasUsed, 0n)}`);
+      await Promise.all(this.txs.map(tx => tx.wait()))
+        .then(receipts => receipts.reduce((acc, { gasUsed }) => acc + gasUsed, 0n))
+        .then(gasUsed => console.log(`total: ${gasUsed}`));
     });
 
     it('testFullRange_swap_TwoPools', async function () {
-      await this.key1.currency0.connect(this.user).approve(this.router, 10000000)
-        .then(tx => tx.wait())
-        .then(this.receipts.push.bind(this.receipts));
-
+      await this.key1.currency0.connect(this.user).approve(this.router, amountSpecified).then(this.txs.push.bind(this.txs));
       await this.router.connect(this.user).swap(
         this.key1,
-        { zeroForOne: true, amountSpecified: 10000000, sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2 },
+        { zeroForOne: true, amountSpecified, sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2 },
         { withdrawTokens: true, settleUsingTransfer: true },
         Constants.ZERO_BYTES
-      )
-        .then(tx => tx.wait())
-        .then(this.receipts.push.bind(this.receipts));
+      ).then(this.txs.push.bind(this.txs));
     });
 
     it('multicall - storage allowance', async function () {
       const calls = [{
         target: this.key1.currency0.target,
         value: 0n,
-        data: this.key1.currency0.interface.encodeFunctionData('approve', [this.router.target, 10000000]),
+        data: this.key1.currency0.interface.encodeFunctionData('approve', [this.router.target, amountSpecified]),
       },{
         target: this.router.target,
         value: 0n,
@@ -174,7 +182,7 @@ describe('Uniswap V4', function () {
           },
           {
             zeroForOne: true,
-            amountSpecified: 10000000,
+            amountSpecified,
             sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2
           },
           {
@@ -184,9 +192,7 @@ describe('Uniswap V4', function () {
           Constants.ZERO_BYTES
         ]),
       }];
-      await this.batchcall.connect(this.user).exec.delegateCall(calls, { gasLimit: 1000000 })
-        .then(tx => tx.wait())
-        .then(this.receipts.push.bind(this.receipts));
+      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(this.txs.push.bind(this.txs));
     });
 
     it('multicall - transient allowance', async function () {
@@ -207,7 +213,7 @@ describe('Uniswap V4', function () {
           },
           {
             zeroForOne: true,
-            amountSpecified: 10000000,
+            amountSpecified,
             sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2
           },
           {
@@ -217,9 +223,7 @@ describe('Uniswap V4', function () {
           Constants.ZERO_BYTES
         ]),
       }];
-      await this.batchcall.connect(this.user).exec.delegateCall(calls, { gasLimit: 1000000 })
-        .then(tx => tx.wait())
-        .then(this.receipts.push.bind(this.receipts));
+      await this.batchcall.connect(this.user).exec.delegateCall(calls).then(this.txs.push.bind(this.txs));
     });
   });
 });

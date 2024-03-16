@@ -222,136 +222,132 @@
   resolved "https://registry.yarnpkg.com/@noble/secp256k1/-/secp256k1-1.7.1.tgz#b251c70f824ce3ca7f8dc3df08d58f005cc0507c"
   integrity sha512-hOUk6AyBFmqVrv7k5WAw/LpszxVbj9gGN4JRkIX52fdFAj1UA61KXmZDvqVEm+pOyec3+fIeZB02LYa/pWOArw==
 
-"@nomicfoundation/ethereumjs-block@5.0.4":
+"@nomicfoundation/ethereumjs-block@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs":
   version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-block/-/ethereumjs-block-5.0.4.tgz#ff2acb98a86b9290e35e315a6abfb9aebb9cf39e"
-  integrity sha512-AcyacJ9eX/uPEvqsPiB+WO1ymE+kyH48qGGiGV+YTojdtas8itUTW5dehDSOXEEItWGbbzEJ4PRqnQZlWaPvDw==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs#1aae51db8271ccd5aae5516beed49cd1b7eba8edfb9b6a53bef7b75b45dbc9ac2904b07c9101b329e4d0f6c590653354d5b8be23eb98c27bced8d9540547d4c3"
   dependencies:
-    "@nomicfoundation/ethereumjs-common" "4.0.4"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-trie" "6.0.4"
-    "@nomicfoundation/ethereumjs-tx" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-trie" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-tx" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     ethereum-cryptography "0.1.3"
 
-"@nomicfoundation/ethereumjs-blockchain@7.0.4":
+"@nomicfoundation/ethereumjs-blockchain@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/blockchain?features/eip-5806-nomiclabs":
   version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-blockchain/-/ethereumjs-blockchain-7.0.4.tgz#b77511b389290b186c8d999e70f4b15c27ef44ea"
-  integrity sha512-jYsd/kwzbmpnxx86tXsYV8wZ5xGvFL+7/P0c6OlzpClHsbFzeF41KrYA9scON8Rg6bZu3ZTv6JOAgj3t7USUfg==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/blockchain?features/eip-5806-nomiclabs#264258e58f00ca8db26f652f5f77a14db914c8714b2c213c7d147db1a6bde6d6c0b60dd9d87c1d791e43ba1a76fb5aa5bfedb40e49991303565ac956902813d4"
   dependencies:
-    "@nomicfoundation/ethereumjs-block" "5.0.4"
-    "@nomicfoundation/ethereumjs-common" "4.0.4"
-    "@nomicfoundation/ethereumjs-ethash" "3.0.4"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-trie" "6.0.4"
-    "@nomicfoundation/ethereumjs-tx" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-block" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-ethash" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/ethash?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-trie" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-tx" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     debug "^4.3.3"
     ethereum-cryptography "0.1.3"
     lru-cache "^10.0.0"
 
-"@nomicfoundation/ethereumjs-common@4.0.4", "@nomicfoundation/ethereumjs-common@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs":
+"@nomicfoundation/ethereumjs-common@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs":
   version "4.0.4"
-  uid "3fe1c3a96146d3fad4d60c7d035b353f1ebd01e7"
-  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs#3fe1c3a96146d3fad4d60c7d035b353f1ebd01e7"
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs#585a233e6f80715a867b3d4665b02725d98d7a3d97ce42c9d2f52c99fb591f80277d76e71bc6519996b8e446cc9c46854dcbfc61fbe37a0bd27201f31b02ee99"
   dependencies:
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/utils?features/eip-5806-nomiclabs"
 
-"@nomicfoundation/ethereumjs-ethash@3.0.4":
+"@nomicfoundation/ethereumjs-ethash@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/ethash?features/eip-5806-nomiclabs":
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-ethash/-/ethereumjs-ethash-3.0.4.tgz#06cb2502b3012fb6c11cffd44af08aecf71310da"
-  integrity sha512-xvIrwIMl9sSaiYKRem68+O7vYdj7Q2XWv5P7JXiIkn83918QzWHvqbswTRsH7+r6X1UEvdsURRnZbvZszEjAaQ==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/ethash?features/eip-5806-nomiclabs#6f0648fe817a0d42be510a4057ba0f3d16909f65ed4387730eec6dc2af2dea76164e7cdad25380b8df2ce6d7071caa37f3e250b863679f794d88cc64608344c6"
   dependencies:
-    "@nomicfoundation/ethereumjs-block" "5.0.4"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-block" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     bigint-crypto-utils "^3.2.2"
     ethereum-cryptography "0.1.3"
 
 "@nomicfoundation/ethereumjs-evm@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/evm?features/eip-5806-nomiclabs":
   version "2.0.4"
-  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/evm?features/eip-5806-nomiclabs#3a5a6800a2ff48d73d3d3321af94c9e01ef4629b"
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/evm?features/eip-5806-nomiclabs#188835b3ae99f8e29a88d6ffc94c6e8c9bc7a85a344d1f6936ea8949f94e337947d0824be95ab558ead1ba3362010995f6b355feee6cd12f9cfaef1705146979"
   dependencies:
     "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-statemanager" "2.0.4"
+    "@nomicfoundation/ethereumjs-statemanager" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/statemanager?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-tx" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     "@types/debug" "^4.1.9"
     debug "^4.3.3"
     ethereum-cryptography "0.1.3"
     rustbn-wasm "^0.2.0"
 
-"@nomicfoundation/ethereumjs-rlp@5.0.4":
+"@nomicfoundation/ethereumjs-rlp@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs":
   version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-rlp/-/ethereumjs-rlp-5.0.4.tgz#66c95256fc3c909f6fb18f6a586475fc9762fa30"
-  integrity sha512-8H1S3s8F6QueOc/X92SdrA4RDenpiAEqMg5vJH99kcQaCy/a3Q6fgseo75mgWlbanGJXSlAPtnCeG9jvfTYXlw==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs#8a962228c0b0154f6b7267fa822b9a2c3ebd4cbbdd51dd132b46b750897112efad74a2a885d023da5dd24c622273c9c76eebba1487acdeac7231a20b552800b2"
 
-"@nomicfoundation/ethereumjs-statemanager@2.0.4":
+"@nomicfoundation/ethereumjs-statemanager@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/statemanager?features/eip-5806-nomiclabs":
   version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-statemanager/-/ethereumjs-statemanager-2.0.4.tgz#bf14415e1f31b5ea8b98a0c027c547d0555059b6"
-  integrity sha512-HPDjeFrxw6llEi+BzqXkZ+KkvFnTOPczuHBtk21hRlDiuKuZz32dPzlhpRsDBGV1b5JTmRDUVqCS1lp3Gghw4Q==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/statemanager?features/eip-5806-nomiclabs#719d8e1c68750e753512b178ca94cc7b7394293d01804a0ccf0ac49d1667289bd53977d893a62922702a659c7ac592dfe01df6f86eb0e79707bb7e4b0cae7ca6"
   dependencies:
-    "@nomicfoundation/ethereumjs-common" "4.0.4"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-trie" "6.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-trie" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     debug "^4.3.3"
     ethereum-cryptography "0.1.3"
     js-sdsl "^4.1.4"
     lru-cache "^10.0.0"
 
-"@nomicfoundation/ethereumjs-trie@6.0.4":
+"@nomicfoundation/ethereumjs-trie@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs":
   version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-trie/-/ethereumjs-trie-6.0.4.tgz#688a3f76646c209365ee6d959c3d7330ede5e609"
-  integrity sha512-3nSwQiFMvr2VFe/aZUyinuohYvtytUqZCUCvIWcPJ/BwJH6oQdZRB42aNFBJ/8nAh2s3OcroWpBLskzW01mFKA==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs#97afe3b62d0487ce32276d6cf3cd924c1b6b81f9d17aadc8493a74660d216c7ae0f9d6485fc4058d3a1f7c2b7effcc8f47927190bf9cc1a5a9511d799fcfcd0a"
   dependencies:
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     "@types/readable-stream" "^2.3.13"
     ethereum-cryptography "0.1.3"
     lru-cache "^10.0.0"
     readable-stream "^3.6.0"
 
-"@nomicfoundation/ethereumjs-tx@5.0.4", "@nomicfoundation/ethereumjs-tx@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs":
+"@nomicfoundation/ethereumjs-tx@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs":
   version "5.0.4"
-  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs#caa1101c23b82aaac21b50e34f0275fd069b2f67"
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs#91f9b630681cff04abe43fd5d235f754ee445862c88a95c6f5443d4f8081576bb9265f97291e0129d73decb55e7476ac85a3e84d47b998f805fcdd58eaac42a2"
   dependencies:
     "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     ethereum-cryptography "0.1.3"
 
-"@nomicfoundation/ethereumjs-util@9.0.4":
+"@nomicfoundation/ethereumjs-util@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs":
   version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-util/-/ethereumjs-util-9.0.4.tgz#84c5274e82018b154244c877b76bc049a4ed7b38"
-  integrity sha512-sLOzjnSrlx9Bb9EFNtHzK/FJFsfg2re6bsGqinFinH1gCqVfz9YYlXiMWwDM4C/L4ywuHFCYwfKTVr/QHQcU0Q==
+  uid da6f80d348045fd963b34c35799d41671267673c3d92999a5afbd9e0aef6be1b2d5786f950925fa75b7a9c66faf55fc138d35bc7cc77124427952a5de3329e18
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs#da6f80d348045fd963b34c35799d41671267673c3d92999a5afbd9e0aef6be1b2d5786f950925fa75b7a9c66faf55fc138d35bc7cc77124427952a5de3329e18"
   dependencies:
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
     ethereum-cryptography "0.1.3"
 
-"@nomicfoundation/ethereumjs-verkle@0.0.2":
+"@nomicfoundation/ethereumjs-util@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/utils?features/eip-5806-nomiclabs":
+  version "0.0.0"
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/utils?features/eip-5806-nomiclabs#61629fb06472b2fcf48af9965769834cb704b3f5897b63d9b55052512b8bf839066b2647b1923c14dd2ab07ac5de9270b167966ee4dd93a44f944a4f9d807a44"
+
+"@nomicfoundation/ethereumjs-verkle@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/verkle?features/eip-5806-nomiclabs":
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-verkle/-/ethereumjs-verkle-0.0.2.tgz#7686689edec775b2efea5a71548f417c18f7dea4"
-  integrity sha512-bjnfZElpYGK/XuuVRmLS3yDvr+cDs85D9oonZ0YUa5A3lgFgokWMp76zXrxX2jVQ0BfHaw12y860n1+iOi6yFQ==
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/verkle?features/eip-5806-nomiclabs#6cfdc8637a568af5b4c4127e2f7f374ed9c28783bf74d4d32459cbae4795738ca560f404618ba4c7fa34b83f0c1edb8f9135a12cbe270f7427f127a1c1f2cf50"
   dependencies:
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/utils?features/eip-5806-nomiclabs"
     lru-cache "^10.0.0"
     rust-verkle-wasm "^0.0.1"
 
 "@nomicfoundation/ethereumjs-vm@https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/vm?features/eip-5806-nomiclabs":
   version "7.0.4"
-  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/vm?features/eip-5806-nomiclabs#a302ca252715040ac42382592d32b075195f7762"
+  resolved "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/vm?features/eip-5806-nomiclabs#4908e7dd90d43c82e5f2b4c300dfbf7967677564396f42be79021598be0206c68c638e4aa20750b2176c091ad48fde11e0440d6eebcb52d3fec5fa8f616ec745"
   dependencies:
-    "@nomicfoundation/ethereumjs-block" "5.0.4"
-    "@nomicfoundation/ethereumjs-blockchain" "7.0.4"
+    "@nomicfoundation/ethereumjs-block" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-blockchain" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/blockchain?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-evm" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/evm?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-statemanager" "2.0.4"
-    "@nomicfoundation/ethereumjs-trie" "6.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-statemanager" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/statemanager?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-trie" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-tx" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
     debug "^4.3.3"
     ethereum-cryptography "0.1.3"
 
@@ -1327,20 +1323,20 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
 
 "hardhat@https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2":
   version "2.20.1"
-  resolved "https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2#1456bdca23a016004b5d87785834583a64019e1e"
+  resolved "https://gitpkg.now.sh/Amxx/hardhat/packages/hardhat-core?features/eip5806/2.20.2#144ac2fb93862e427585a89b37b5ebfc5fbd0d01"
   dependencies:
     "@ethersproject/abi" "^5.1.2"
     "@metamask/eth-sig-util" "^4.0.0"
-    "@nomicfoundation/ethereumjs-block" "5.0.4"
-    "@nomicfoundation/ethereumjs-blockchain" "7.0.4"
+    "@nomicfoundation/ethereumjs-block" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/block?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-blockchain" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/blockchain?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-common" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/common?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-evm" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/evm?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-rlp" "5.0.4"
-    "@nomicfoundation/ethereumjs-statemanager" "2.0.4"
-    "@nomicfoundation/ethereumjs-trie" "6.0.4"
+    "@nomicfoundation/ethereumjs-rlp" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/rlp?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-statemanager" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/statemanager?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-trie" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/trie?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-tx" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/tx?features/eip-5806-nomiclabs"
-    "@nomicfoundation/ethereumjs-util" "9.0.4"
-    "@nomicfoundation/ethereumjs-verkle" "0.0.2"
+    "@nomicfoundation/ethereumjs-util" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/util?features/eip-5806-nomiclabs"
+    "@nomicfoundation/ethereumjs-verkle" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/verkle?features/eip-5806-nomiclabs"
     "@nomicfoundation/ethereumjs-vm" "https://gitpkg.now.sh/Amxx/ethereumjs-monorepo/packages/vm?features/eip-5806-nomiclabs"
     "@nomicfoundation/solidity-analyzer" "^0.1.0"
     "@sentry/node" "^5.18.1"

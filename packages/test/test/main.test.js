@@ -39,8 +39,8 @@ describe('Mock', function () {
 
   it('call #1', async function () {
     const target = ethers.Wallet.createRandom();
-    await expect(this.instance.call.delegateCall(target, 100n, '0x', { gasLimit: 100000n })) // gas?
-    .to.changeEtherBalances([ this.signer, target, this.instance], [ -100n, 100n, 0n ]);
+    await expect(this.instance.call.delegateCall(target, 100n, '0x'))
+      .to.changeEtherBalances([ this.signer, target, this.instance], [ -100n, 100n, 0n ]);
   });
 
   it('call #2', async function () {
@@ -48,9 +48,9 @@ describe('Mock', function () {
       target: this.instance,
       value: 1n,
       data: this.instance.interface.encodeFunctionData('log')
-    }], { gasLimit: 100000n })) // gas?
-    .to.emit(this.instance, 'Context')
-    .withArgs(this.instance, this.signer, 1n, 1n);
+    }]))
+      .to.emit(this.instance, 'Context')
+      .withArgs(this.instance, this.signer, 1n, 1n);
   });
 
   describe('restricted opcodes', function () {
