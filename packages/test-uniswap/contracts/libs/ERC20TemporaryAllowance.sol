@@ -3,18 +3,23 @@ pragma solidity ^0.8.0;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
+import {Slots} from "./Slots.sol";
 import {TransientStorage} from "./TransientStorage.sol";
 
-abstract contract ERC20TransientAllowance is ERC20 {
-    // keccak256(abi.encode(uint256(keccak256("openzeppelin.storage.ERC20TransientAllowance")) - 1)) & ~bytes32(uint256(0xff))
-    bytes32 private constant ERC20TransientAllowanceLocation = 0x4a282c780a8065895b22ad97ecbf85ab9f6c03bfff9a7f6b61013cf12277df00;
+abstract contract ERC20TemporaryAllowance is ERC20 {
+    using Slots for bytes32;
+    using TransientStorage for bytes32;
+
+    /// We reuse the same storage slot (defined using ERC7201) as the one used for normal storage
+    // keccak256(abi.encode(uint256(keccak256("openzeppelin.storage.ERC20")) - 1)) & ~bytes32(uint256(0xff))
+    bytes32 private constant ERC20StorageLocation = 0x52c63247e1f47db19d5ce0460030c497f067ca4cebf71ba98eeadabe20bace00;
 
     function allowance(address owner, address spender) public view virtual override returns (uint256) {
         (bool success, uint256 amount) = Math.tryAdd(super.allowance(owner, spender), _loadTranscientAllowance(owner, spender));
         return success ? amount : type(uint256).max;
     }
 
-    function approveTransient(address spender, uint256 value) public virtual returns (bool) {
+    function temporaryApproval(address spender, uint256 value) public virtual returns (bool) {
         address owner = _msgSender();
         _storeTranscientAllowance(owner, spender, value);
         return true;
@@ -38,23 +43,10 @@ abstract contract ERC20TransientAllowance is ERC20 {
     }
 
     function _loadTranscientAllowance(address owner, address spender) private view returns (uint256) {
-        return TransientStorage.loadUint256(_transientAllowanceSlot(owner, spender));
+        return ERC20StorageLocation.offset(1).derivateMapping(owner).derivateMapping(spender).loadUint256();
     }
 
     function _storeTranscientAllowance(address owner, address spender, uint256 value) private {
-        return TransientStorage.store(_transientAllowanceSlot(owner, spender), value);
-    }
-
-    function _transientAllowanceSlot(address owner, address spender) private pure returns (bytes32 slot) {
-        return _efficientHash(_efficientHash(ERC20TransientAllowanceLocation, bytes32(bytes20(owner))), bytes32(bytes20(spender)));
-    }
-
-    function _efficientHash(bytes32 a, bytes32 b) private pure returns (bytes32 value) {
-        /// @solidity memory-safe-assembly
-        assembly {
-            mstore(0x00, a)
-            mstore(0x20, b)
-            value := keccak256(0x00, 0x40)
-        }
+        ERC20StorageLocation.offset(1).derivateMapping(owner).derivateMapping(spender).store(value);
     }
 }

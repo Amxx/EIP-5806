@@ -199,7 +199,7 @@ describe('Uniswap V4', function () {
       const calls = [{
         target: this.key1.currency0.target,
         value: 0n,
-        data: this.key1.currency0.interface.encodeFunctionData('approveTransient', [this.router.target, ethers.MaxUint256]), // allowance is revoked anyway
+        data: this.key1.currency0.interface.encodeFunctionData('temporaryApproval', [this.router.target, ethers.MaxUint256]), // allowance is revoked anyway
       },{
         target: this.router.target,
         value: 0n,
