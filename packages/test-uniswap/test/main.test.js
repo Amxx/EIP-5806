@@ -32,7 +32,6 @@ async function fixture() {
   // deployFreshManagerAndRouters
   const manager = await ethers.deployContract('PoolManager', [ 500000 ])
   const feeController = await ethers.deployContract('ProtocolFeeControllerTest');
-  const initializeRouter = await ethers.deployContract('PoolInitializeTest', [manager]);
   const router = await ethers.deployContract('HookEnabledSwapRouter', [manager]);
 
   // Hook
@@ -87,15 +86,15 @@ async function fixture() {
       token.connect(admin).approve(fullRange, ethers.MaxUint256),
     ]),
     [key1, key2].flatMap(key => [
-      initializeRouter.initialize(key, Constants.SQRT_RATIO_1_1, Constants.ZERO_BYTES),
+      manager.initialize(key, Constants.SQRT_RATIO_1_1, Constants.ZERO_BYTES),
       fullRange.addLiquidity({
         currency0:      key.currency0,
         currency1:      key.currency1,
         fee:            key.fee,
-        amount0Desired: ethers.parseEther('10'),
-        amount1Desired: ethers.parseEther('10'),
-        amount0Min:     ethers.parseEther('9'),
-        amount1Min:     ethers.parseEther('9'),
+        amount0Desired: ethers.parseEther('100'),
+        amount1Desired: ethers.parseEther('100'),
+        amount0Min:     ethers.parseEther('99'),
+        amount1Min:     ethers.parseEther('99'),
         to:             admin,
         deadline:       Constants.MAX_DEADLINE,
       })
@@ -108,7 +107,6 @@ async function fixture() {
     batchcall,
     manager,
     feeController,
-    initializeRouter,
     router,
     fullRange,
     token0,
@@ -138,6 +136,13 @@ describe('Uniswap V4', function () {
       expect(await this.key1.currency0.allowance(this.user, this.router)).to.equal(0n);
       // prepare struct for measuring gas
       this.txs = [];
+
+      // DEBUG
+      // console.log({
+      //   [this.key1.currency0.target]: 'this.key1.currency0',
+      //   [this.user.address]: 'user',
+      //   [this.router.target]: 'router',
+      // });
     });
 
     afterEach(async function () {
@@ -158,7 +163,7 @@ describe('Uniswap V4', function () {
       await this.key1.currency0.connect(this.user).approve(this.router, amountSpecified).then(tx => this.txs.push(tx));
       await this.router.connect(this.user).swap(
         this.key1,
-        { zeroForOne: true, amountSpecified, sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2 },
+        { zeroForOne: true, amountSpecified: -amountSpecified, sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2 },
         { withdrawTokens: true, settleUsingTransfer: true },
         Constants.ZERO_BYTES
       ).then(tx => this.txs.push(tx));
@@ -182,7 +187,7 @@ describe('Uniswap V4', function () {
           },
           {
             zeroForOne: true,
-            amountSpecified,
+            amountSpecified: -amountSpecified,
             sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2
           },
           {
@@ -213,7 +218,7 @@ describe('Uniswap V4', function () {
           },
           {
             zeroForOne: true,
-            amountSpecified,
+            amountSpecified: -amountSpecified,
             sqrtPriceLimitX96: Constants.SQRT_RATIO_1_2
           },
           {

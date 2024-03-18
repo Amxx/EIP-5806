@@ -25,3 +25,9 @@
 [submodule "packages/test-uniswap/lib/uniswap-v4-periphery"]
 	path = packages/test-uniswap/lib/uniswap-v4-periphery
 	url = https://github.com/Uniswap/v4-periphery.git
+[submodule "packages/test-uniswap/lib/uniswap-v4-core"]
+	path = packages/test-uniswap/lib/uniswap-v4-core
+	url = https://github.com/Uniswap/v4-core.git
+[submodule "packages/test-uniswap/lib/forge-std"]
+	path = packages/test-uniswap/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std.git
