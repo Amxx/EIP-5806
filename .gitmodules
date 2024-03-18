@@ -17,3 +17,11 @@
 [submodule "packages/test-uniswap/lib/uniswap-v4-periphery"]
 	path = packages/test-uniswap/lib/uniswap-v4-periphery
 	url = https://github.com/Uniswap/v4-periphery.git
+[submodule "lib/ethereumjs-monorepo-nomiclabs"]
+	path = lib/ethereumjs-monorepo-nomiclabs
+	url = https://github.com/Amxx/ethereumjs-monorepo.git
+	branch = features/eip-5806-nomiclabs
+[submodule "Amxx"]
+	path = lib/hardhat-2.20.2
+	url = https://github.com/Amxx/hardhat.git
+	branch = features/eip5806/2.20.2
